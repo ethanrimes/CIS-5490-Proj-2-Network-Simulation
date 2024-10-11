@@ -1,0 +1,5 @@
+set xlabel "Time(sec)"
+set ylabel "Throughput (Mbps)"
+set yrange [0:200]
+
+plot 'prj-throughput-ue-all.dat' title 'ALL-WiFi-RTT(80ms): TCP Thp(Mbps)','prj-throughput-ue1.dat' title 'UE1 WiFi-RTT(80ms): TCP Thp(Mbps)','prj-throughput-ue2.dat' title 'UE2 WiFi-RTT(80ms): TCP Thp(Mbps)','prj-throughput-ue3.dat' title 'UE3 WiFi-RTT(80ms): TCP Thp(Mbps)'
