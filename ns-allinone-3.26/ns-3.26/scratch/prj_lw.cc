@@ -166,6 +166,12 @@ int main(int argc, char *argv[]) {
 
     cmd.Parse (argc, argv);
 
+    // Check if numberUE is within valid range
+    if (numberUE < 1 || numberUE > 20) {
+        std::cout << "INPUT ERROR" << std::endl;
+        return EXIT_FAILURE;
+    }
+
     uint16_t numberEnb = 1;
     uint16_t numberRemote = 1;
 
@@ -281,24 +287,29 @@ int main(int argc, char *argv[]) {
     //
     //EDIT START
     double ueXmin = 1.0;
-    double ueXmax = 8.0;     //EDIT: uncomment for the UE placement problem
-    double ueYmin = 12;        //EDIT: uncomment for the UE placement problem
+    double ueXmax = 8.0;
+    double ueYmin = 12;
     double ueYmax = 30;
+    
+    // Generate a random number between ueXmin and ueXmax
+    Ptr<UniformRandomVariable> x = CreateObject<UniformRandomVariable> ();
+    x->SetAttribute ("Min", DoubleValue (ueXmin));
+    x->SetAttribute ("Max", DoubleValue (ueXmax));
+
+    Ptr<UniformRandomVariable> y = CreateObject<UniformRandomVariable> ();
+    y->SetAttribute ("Min", DoubleValue (ueYmin));
+    y->SetAttribute ("Max", DoubleValue (ueYmax));
 
     // Generate a random number for X and Y coordination for each of UEs
-    // in here using the above min and max boundary
+    // using the above min and max boundary
     // (x, y, z) coordination for UE location. z=0 means ground
     //////////////////////////////////////
 
-    
-    double tmpX = ueXmin;
-    double tmpY = ueYmin;
-
     Ptr<ListPositionAllocator> positionAlloc1 = CreateObject<ListPositionAllocator> ();
-    for (uint16_t i = 1; i <= ueNodes.GetN(); i++) {
-        tmpX += 2;
-        tmpY += 2;
-        positionAlloc1->Add (Vector(tmpX, tmpY, 0));    // x, and y should be randomly generated
+    for (uint32_t i = 0; i < ueNodes.GetN(); i++) {
+        double randomX = x->GetValue ();
+        double randomY = y->GetValue ();
+        positionAlloc1->Add (Vector(randomX, randomY, 0));
     }
     
     //EDIT END
