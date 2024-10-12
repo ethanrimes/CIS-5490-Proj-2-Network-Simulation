@@ -10,11 +10,6 @@ def read_output_files(directory_path):
     three_ue_files = defaultdict(list)
     three_ue_data = pd.DataFrame(columns=['RTT(ms)', 'RWND(Bytes)', 'MCS', 'Peak(Mbps)_PerUE', 'Avg(Mbps)_PerUE','Peak(Mbps)_System', 'Avg(Mbps)_System'])
 
-    # Check if the directory exists
-    # if not os.path.exists(directory_path):
-    #     print(f"Directory {directory_path} does not exist.")
-    #     return
-
     # Iterate over all files in the directory
     for filename in os.listdir(directory_path):
         file_path = os.path.join(directory_path, filename)
@@ -39,19 +34,21 @@ def read_output_files(directory_path):
             three_ue_files[(mcs, rw, rtt)].append(np.loadtxt(file_path))
 
     # Handle the case of three UE
+    # Handle the case of three UE
+    three_ue_data = pd.DataFrame(columns=['RTT(ms)', 'RWND(Bytes)', 'MCS', 'Peak(Mbps)_PerUE', 'Avg(Mbps)_PerUE','Peak(Mbps)_System', 'Avg(Mbps)_System'])
     for key, value in three_ue_files.items():
         mcs, rw, rtt = key
         stacked_data = np.vstack(value)
         perue_peak = round(np.max(stacked_data[:, 1]), 2)
         perue_avg = round(np.mean(stacked_data[:, 1]), 2)
 
-        dfs = [pd.DataFrame(arr, columns=['Key', 'Value']) for arr in value]
-        result = dfs[0].set_index('Key')
-        for df in dfs[1:]:
-            result = result.add(df.set_index('Key'), fill_value=0)
-        result = result.reset_index()
-        system_peak = round(np.max(result['Value']), 2)
-        system_avg = round(np.mean(result['Value']), 2)
+        # Sum up the values for each key across all files
+        combined_data = np.zeros_like(value[0])
+        for arr in value:
+            combined_data += arr
+        
+        system_peak = round(np.max(combined_data[:, 1]), 2)
+        system_avg = round(np.mean(combined_data[:, 1]), 2)
 
         new_row = {
             'RTT(ms)': rtt,
@@ -67,7 +64,10 @@ def read_output_files(directory_path):
     return one_ue_data, three_ue_data
 
 def concatenate_data(one_ue_data, three_ue_data):
-    index = {'RTT(ms)': [30, 200, 30, 200, 30, 200, 30, 200], 'RWND(Bytes)': [64000, 64000, 1024000, 1024000, 64000, 64000, 1024000, 1024000], 'MCS': ['HtMcs1', 'HtMcs1', 'HtMcs1', 'HtMcs1', 'HtMcs7', 'HtMcs7', 'HtMcs7', 'HtMcs7']}
+    index = {'RTT(ms)': [30, 200, 30, 200, 30, 200, 30, 200], 
+             'RWND(Bytes)': [64000, 64000, 1024000, 1024000, 64000, 64000, 1024000, 1024000], 
+             'MCS': ['HtMcs1', 'HtMcs1', 'HtMcs1', 'HtMcs1', 'HtMcs7', 'HtMcs7', 'HtMcs7', 'HtMcs7']}
+    
     index_df = pd.DataFrame(index)
     
     # Perform left join of one_ue_data with index_df
@@ -76,10 +76,9 @@ def concatenate_data(one_ue_data, three_ue_data):
     # Perform left join of three_ue_data with index_df
     three_ue_merged = pd.merge(index_df, three_ue_data, on=['RTT(ms)', 'RWND(Bytes)', 'MCS'], how='left')
     
-    # Combine the dataframes in the specified order
+    # Combine the dataframes in the specified order, skipping concatenation with index_df
     result = pd.concat([
-        index_df,
-        one_ue_merged[['Peak(Mbps)_1UE', 'Avg(Mbps)_1UE']],
+        one_ue_merged[['RTT(ms)', 'RWND(Bytes)', 'MCS', 'Peak(Mbps)_1UE', 'Avg(Mbps)_1UE']],
         three_ue_merged[['Peak(Mbps)_PerUE', 'Avg(Mbps)_PerUE', 'Peak(Mbps)_System', 'Avg(Mbps)_System']]
     ], axis=1)
     
