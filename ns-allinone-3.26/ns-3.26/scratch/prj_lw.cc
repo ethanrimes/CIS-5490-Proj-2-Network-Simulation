@@ -573,9 +573,6 @@ int main(int argc, char *argv[]) {
     // The network node and interface index are provided in the assignment sheet
 
     // EDIT START ( about several lines of codes)
-
-    InternetStackHelper internet;
-    
     std::ostringstream remoteHostFileName;
     remoteHostFileName << "_" << remoteHostContainer.Get(0)->GetId() << "_" << internetIpIfaces1.Get(0).first->GetObject<Ipv4>()->GetInterfaceForAddress(Ipv4Address(internetIpIfaces1.Get(0).second));
     internet.EnablePcapIpv4(remoteHostFileName.str(), remoteHostContainer.Get(0)->GetDevice(0), internetIpIfaces1.Get(0).first->GetObject<Ipv4>()->GetInterfaceForAddress(Ipv4Address(internetIpIfaces1.Get(0).second)), true);
