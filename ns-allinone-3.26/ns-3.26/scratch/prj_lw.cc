@@ -579,16 +579,17 @@ int main(int argc, char *argv[]) {
 
     // Get file name for remoteHost
     std::ostringstream remoteHostFileName;
-    remoteHostFileName << "_" << remoteHostContainer.Get(0)->GetId() << "_" << internetIpIfaces1.Get(0).first->GetObject<Ipv4>()->GetInterfaceForAddress(Ipv4Address(internetIpIfaces1.Get(0).second));
+    remoteHostFileName << "remoteHost_" << remoteHostContainer.Get(0)->GetId() << "_" << 0 << ".pcap";
     // Get interface index
     // Ptr<Ipv4> ipv4_pointer = remoteHost->GetObject<Ipv4>();
     // int index = FindMatchingDeviceIndex(internetDevices1, ipv4_pointer);
     // uint32_t interfaceIndex = internetIpIfaces1.Get(index).second;
     // internet.EnablePcapIpv4(remoteHostFileName.str(), remoteHost->GetId(), internetDevices1.Get(0)->GetIfIndex(), true);
+    // internetIpIfaces1.Get(1).first->GetObject<Ipv4>()->GetInterfaceForAddress(Ipv4Address(internetIpIfaces1.Get(1).second));
     p2ph.EnablePcap (remoteHostFileName.str(), remoteHost->GetId(), 0, true);
 
     std::ostringstream routerFileName;
-    routerFileName << "_" << router.Get(0)->GetId() << "_" << internetIpIfaces1.Get(1).first->GetObject<Ipv4>()->GetInterfaceForAddress(Ipv4Address(internetIpIfaces1.Get(1).second));
+    routerFileName << "router_" << router.Get(0)->GetId() << "_" << 0 << ".pcap";
     // ipv4_pointer = router.Get(0)->GetObject<Ipv4>();
     // index = FindMatchingDeviceIndex(internetDevices1, ipv4_pointer);
     // interfaceIndex = internetIpIfaces1.Get(index).second;
@@ -596,7 +597,7 @@ int main(int argc, char *argv[]) {
     // internet.EnablePcapIpv4(routerFileName.str(), router.Get(0)->GetId(), internetDevices1.Get(0).Get(0)->GetIfIndex(), true);
 
     std::ostringstream apWiFiFileName;
-    apWiFiFileName << "_" << apWiFiNode.Get(0)->GetId() << "_" << internetIpIfaces3.Get(0).first->GetObject<Ipv4>()->GetInterfaceForAddress(Ipv4Address(internetIpIfaces3.Get(0).second));
+    apWiFiFileName << "apWiFi_" << apWiFiNode.Get(0)->GetId() << "_" << ".pcap";
     // ipv4_pointer = apWiFiNode.Get(0)->GetObject<Ipv4>();
     // index = FindMatchingDeviceIndex(internetDevices2, ipv4_pointer);
     // interfaceIndex = internetIpIfaces2.Get(index).second;
