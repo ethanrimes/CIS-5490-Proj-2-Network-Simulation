@@ -574,31 +574,20 @@ int main(int argc, char *argv[]) {
 
     // EDIT START ( about several lines of codes)
 
-
-    std::ostringstream remoteHostFileName;
-    remoteHostFileName << "remoteHost_" << remoteHost->GetId() << "_" << remoteHost->GetDevice(0)->GetIfIndex() << ".pcap";
-    p2ph.EnablePcap (remoteHostFileName.str(), remoteHost->GetId(), remoteHost->GetDevice(0)->GetIfIndex(), true);
-    
     uint32_t interfaceid = remoteHost->GetObject<Ipv4>()->GetInterfaceForDevice(remoteHost->GetDevice(0));
-    std::ostringstream remoteHostFileName2;
-    remoteHostFileName2 << "remoteHost_" << remoteHost->GetId() << "_" << interfaceid << ".pcap";
+    std::ostringstream remoteHostFileName;
+    remoteHostFileName << "remoteHost_" << remoteHost->GetId() << "_" << interfaceid << ".pcap";
     internet.EnablePcapIpv4(remoteHostFileName.str(), remoteHost->GetId(), interfaceid, true);
 
-    std::ostringstream routerFileName;
-    routerFileName << "router_" << router.Get(0)->GetId() << "_" << router.Get(0)->GetDevice(0)->GetIfIndex() << ".pcap";
     interfaceid = router.Get(0)->GetObject<Ipv4>()->GetInterfaceForDevice(router.Get(0)->GetDevice(0));
-    std::ostringstream routerFileName2;
-    routerFileName2 << "router_" << router.Get(0)->GetId() << "_" << interfaceid << ".pcap";
-    p2ph.EnablePcap (routerFileName.str(), router.Get(0)->GetId(), router.Get(0)->GetDevice(0)->GetIfIndex(), true);
-    internet.EnablePcapIpv4(routerFileName2.str(), router.Get(0)->GetId(), interfaceid, true);
+    std::ostringstream routerFileName;
+    routerFileName << "router_" << router.Get(0)->GetId() << "_" << interfaceid << ".pcap";
+    internet.EnablePcapIpv4 (routerFileName.str(), router.Get(0)->GetId(), interfaceid, true);
 
-    std::ostringstream apWiFiFileName;
-    apWiFiFileName << "apWiFi_" << apWiFiNode.Get(0)->GetId() << "_" << apWiFiNode.Get(0)->GetDevice(0)->GetIfIndex() << ".pcap";
-    p2ph.EnablePcap (apWiFiFileName.str(), apWiFiNode.Get(0)->GetId(), apWiFiNode.Get(0)->GetDevice(0)->GetIfIndex(), true);
     interfaceid = apWiFiNode.Get(0)->GetObject<Ipv4>()->GetInterfaceForDevice(apWiFiNode.Get(0)->GetDevice(0));
-    std::ostringstream apWiFiFileName2;
-    apWiFiFileName2 << "apWiFi_" << apWiFiNode.Get(0)->GetId() << "_" << interfaceid << ".pcap";
-    internet.EnablePcapIpv4(apWiFiFileName2.str(), apWiFiNode.Get(0)->GetId(), interfaceid, true);
+    std::ostringstream apWiFiFileName;
+    apWiFiFileName << "apWiFi_" << apWiFiNode.Get(0)->GetId() << "_" << interfaceid << ".pcap";
+    internet.EnablePcapIpv4 (apWiFiFileName.str(), apWiFiNode.Get(0)->GetId(), interfaceid, true);
 
 
     // EDIT END
