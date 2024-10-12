@@ -588,17 +588,17 @@ int main(int argc, char *argv[]) {
 
     uint32_t interfaceid = remoteHost->GetObject<Ipv4>()->GetInterfaceForDevice(remoteHost->GetDevice(0));
     std::ostringstream remoteHostFileName;
-    remoteHostFileName << "remoteHost_";
+    remoteHostFileName << prefix_file_name << "remoteHost";
     internet.EnablePcapIpv4(remoteHostFileName.str(), remoteHost->GetId(), interfaceid, false);
 
     interfaceid = router.Get(0)->GetObject<Ipv4>()->GetInterfaceForDevice(router.Get(0)->GetDevice(0));
     std::ostringstream routerFileName;
-    routerFileName << "router_";
+    routerFileName  << prefix_file_name  << "router";
     internet.EnablePcapIpv4 (routerFileName.str(), router.Get(0)->GetId(), interfaceid, false);
 
     interfaceid = apWiFiNode.Get(0)->GetObject<Ipv4>()->GetInterfaceForDevice(apWiFiNode.Get(0)->GetDevice(0));
     std::ostringstream apWiFiFileName;
-    apWiFiFileName << "apWiFi_";
+    apWiFiFileName << prefix_file_name << "apWiFi";
     internet.EnablePcapIpv4 (apWiFiFileName.str(), apWiFiNode.Get(0)->GetId(), interfaceid, false);
 
 
