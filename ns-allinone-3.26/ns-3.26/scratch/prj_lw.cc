@@ -595,21 +595,21 @@ int main(int argc, char *argv[]) {
     Ptr<Ipv4> ipv4_pointer = remoteHost->GetObject<Ipv4>();
     int index = FindMatchingDeviceIndex(internetDevices1, ipv4_pointer);
     uint32_t interfaceIndex = internetIpIfaces1.Get(index).second;
-    internet.EnablePcapIpv4(remoteHostFileName.str(), remoteHostContainer.Get(0)->GetDevice(0), interfaceIndex, true);
+    internet.EnablePcapIpv4(remoteHostFileName.str(), remoteHostContainer.Get(0)->GetId(), interfaceIndex, true);
 
     std::ostringstream routerFileName;
     routerFileName << "_" << router.Get(0)->GetId() << "_" << internetIpIfaces1.Get(1).first->GetObject<Ipv4>()->GetInterfaceForAddress(Ipv4Address(internetIpIfaces1.Get(1).second));
     ipv4_pointer = router.Get(0)->GetObject<Ipv4>();
     index = FindMatchingDeviceIndex(internetDevices1, ipv4_pointer);
     interfaceIndex = internetIpIfaces1.Get(index).second;
-    internet.EnablePcapIpv4(routerFileName.str(), router.Get(0)->GetDevice(0), interfaceIndex, true);
+    internet.EnablePcapIpv4(routerFileName.str(), router.Get(0)->GetId(), interfaceIndex, true);
 
     std::ostringstream apWiFiFileName;
     apWiFiFileName << "_" << apWiFiNode.Get(0)->GetId() << "_" << internetIpIfaces3.Get(0).first->GetObject<Ipv4>()->GetInterfaceForAddress(Ipv4Address(internetIpIfaces3.Get(0).second));
     ipv4_pointer = apWiFiNode.Get(0)->GetObject<Ipv4>();
     index = FindMatchingDeviceIndex(internetDevices2, ipv4_pointer);
     interfaceIndex = internetIpIfaces2.Get(index).second;
-    internet.EnablePcapIpv4(apWiFiFileName.str(), apWiFiNode.Get(0)->GetDevice(0), interfaceIndex, true);
+    internet.EnablePcapIpv4(apWiFiFileName.str(), apWiFiNode.Get(0)->GetId(), interfaceIndex, true);
 
 
     // EDIT END
