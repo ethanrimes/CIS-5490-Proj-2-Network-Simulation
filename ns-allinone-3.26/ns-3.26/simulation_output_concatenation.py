@@ -13,16 +13,18 @@ def read_output_files(directory_path):
     udp_data = pd.DataFrame(columns=['RTT(ms)', 'MCS', 'Peak(Mbps)', 'Avg(Mbps)'])
 
     # Iterate over all files in the directory
-    def find_start_end_time(data):
+    def find_start_end_time(data, filename):
         start, end = 0, len(data) - 1
         for i in range(len(data)):
-            if data[i, 0] > 0:
+            if data[i, 1] > 0:
                 start = i
                 break
         for i in range(len(data) - 1, -1, -1):
-            if data[i, 0] > 0:
+            if data[i, 1] > 0:
                 end = i
                 break
+        if end == len(data) - 1:
+            print("Warning: insufficient time for", filename)
         return start, end
 
     for filename in os.listdir(directory_path):
@@ -32,7 +34,7 @@ def read_output_files(directory_path):
         rtt = 30 if 'rtt30' in filename else 200
         if filename.endswith('.dat') and 'tcp' in filename and 'all' not in filename and '1ue' in filename:
             data = np.loadtxt(file_path)
-            start, end = find_start_end_time(data)
+            start, end = find_start_end_time(data, filename)
             peak = round(np.max(data[start:end, 1]), 2)
             avg = round(np.mean(data[start:end, 1]), 2)
             new_row = {
@@ -53,7 +55,7 @@ def read_output_files(directory_path):
         
         if filename.endswith('.dat') and 'tcp' in filename and 'all' in filename and '3ue' in filename:
             data = np.loadtxt(file_path)
-            start, end = find_start_end_time(data)
+            start, end = find_start_end_time(data, filename)
             system_peak = round(np.max(data[start:end, 1]), 2)
             system_avg = round(np.mean(data[start:end, 1]), 2)
             mcs = 'HtMcs7' if 'm7' in filename else 'HtMcs1'
@@ -68,9 +70,9 @@ def read_output_files(directory_path):
             }
             three_ue_data_system = pd.concat([three_ue_data_system, pd.DataFrame([new_row])], ignore_index=True)
 
-        if filename.endswith('.dat') and 'udp' in filename and 'all' not in filename and '3ue' in filename:
+        if filename.endswith('.dat') and 'udp' in filename and 'all' in filename:
             data = np.loadtxt(file_path)
-            start, end = find_start_end_time(data)
+            start, end = find_start_end_time(data, filename)
             peak = round(np.max(data[start:end, 1]), 2)
             avg = round(np.mean(data[start:end, 1]), 2)
             new_row = {
@@ -88,7 +90,7 @@ def read_output_files(directory_path):
         perue_peak = 0
         UE_averages = []
         for arr in value:
-            start, end = find_start_end_time(arr)
+            start, end = find_start_end_time(arr, f"mcs: {mcs}, rw: {rw} bytes, rtt: {rtt} ms")
             perue_peak = np.max([perue_peak, np.max(arr[start:end, 1])])
             UE_averages.append(np.mean(arr[start:end, 1]))
 

@@ -144,7 +144,7 @@ int main(int argc, char *argv[]) {
     cmd.AddValue ("Scenario", "Differnet Simulation Scenario", Scenario);
     cmd.AddValue ("DataSizeforTCP", "Total Data Size for TCP (Default = 20000)", DataSizeforTCP);
     cmd.AddValue ("Transport", "Transport Layer Protocol (TCP = 1, UDP = 2) (Default: TCP)", Transport);
-    cmd.AddValue ("DataRateforUDP", "Data Rate for UDP (Defaule = 100Mb/s)", DataRateforUDP);
+    cmd.AddValue ("DataRateforUDP", "Data Rate for UDP (Default = 100Mb/s)", DataRateforUDP);
     cmd.AddValue ("OutputFileName", "The Prefix Output File Name (Default: CIS549)", prefix_file_name);
 
     // LTE channel Bandwidth options: 1.4 MHz, 5 MHz, 10 MHz, and 20 Mhz
@@ -159,18 +159,7 @@ int main(int argc, char *argv[]) {
     cmd.AddValue("tcpRcvBufBytes", "TCP receive buffer size in bytes", tcpRcvBufBytes);
     cmd.AddValue("delayValueforRHtoR", "Delay between Remote Host and Router", delayValueBtwnRemoteHostAndRouter);
     cmd.AddValue("delayValueforWifi", "Delay between Router and Wi-Fi AP", delayValueforWifi);
-    // Set the Wi-Fi MCS value
-    // wifiHelper.SetRemoteStationManager("ns3::ConstantRateWifiManager", "DataMode", StringValue(wifiMcs));
-
-    // Set the TCP receive buffer size
-    // Config::SetDefault("ns3::TcpSocket::RcvBufSize", UintegerValue(tcpRcvBufBytes));
-
-    // Set delay values
-    // p2ph.SetChannelAttribute("Delay", TimeValue(MilliSeconds(delayValueforRHtoR)));
-    // wifiChannel.SetChannelAttribute("Delay", TimeValue(MilliSeconds(delayValueforWifi)));
-
-
-
+    
 
 
     // EDIT END

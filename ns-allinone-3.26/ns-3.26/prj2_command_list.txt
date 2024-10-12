@@ -25,24 +25,24 @@
 # So you can add echo lines for the rest of the command. Simply copy & paste the command line and typr "echo " at the beginning of the line.
 
 echo ./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m7_rw1m_rtt30 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=20"
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m7_rw1m_rtt30 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m7_rw1m_rtt30 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=40"
 
 echo ./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m1_rw1m_rtt30 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=20"
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m1_rw1m_rtt30 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m1_rw1m_rtt30 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=40"
 
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m7_rw64k_rtt30 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m7_rw64k_rtt30 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=40"
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m1_rw64k_rtt30 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=5 --delayValueforWifi=10 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m1_rw64k_rtt30 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=5 --delayValueforWifi=10 --simTime=40"
 
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m7_rw1m_rtt200 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m7_rw1m_rtt200 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=40"
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m1_rw1m_rtt200 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m1_rw1m_rtt200 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=40"
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m7_rw64k_rtt200 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=30"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m7_rw64k_rtt200 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=60"
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m1_rw64k_rtt200 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=30"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m1_rw64k_rtt200 --Scenario=1 --NumberUE=1 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=60"
 
 
 ##################################################
@@ -57,22 +57,22 @@ echo ./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m1_r
 # Commands for the 8 scenarios
 ##################################################
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m7_rw1m_rtt30 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m7_rw1m_rtt30 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=40"
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m1_rw1m_rtt30 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m1_rw1m_rtt30 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=40"
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m7_rw64k_rtt30 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m7_rw64k_rtt30 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=5  --delayValueforWifi=10 --simTime=40"
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m1_rw64k_rtt30 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=5 --delayValueforWifi=10 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m1_rw64k_rtt30 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=5 --delayValueforWifi=10 --simTime=40"
 
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m7_rw1m_rtt200 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m7_rw1m_rtt200 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=40"
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m1_rw1m_rtt200 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m1_rw1m_rtt200 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=40"
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m7_rw64k_rtt200 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=30"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m7_rw64k_rtt200 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs7 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=60"
 
-./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m1_rw64k_rtt200 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=30"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_3ue_m1_rw64k_rtt200 --Scenario=1 --NumberUE=3 --wifiMcs=HtMcs1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=10 --delayValueforWifi=90 --simTime=60"
 
 
 ##################################################
@@ -86,13 +86,13 @@ echo ./waf --run "scratch/prj_lw --OutputFileName=output/prj_wf_10m_tcp_1ue_m1_r
 # Commands for the 4 scenarios
 ##################################################
 
-./waf --run "scratch/prj_lw  --OutputFileName=output/prj_wf_50Mb_udp_1ue_m1_rtt30 --Scenario=1 --NumberUE=1 --Transport=2  --DataRateforUDP=50Mb/s  --wifiMcs=HtMcs1  --delayValueforRHtoR=5  --delayValueforWifi=10  --simTime=2"
+./waf --run "scratch/prj_lw  --OutputFileName=output/prj_wf_50Mb_udp_1ue_m1_rtt30 --Scenario=1 --NumberUE=1 --Transport=2  --DataRateforUDP=150Mb/s  --wifiMcs=HtMcs1  --delayValueforRHtoR=5  --delayValueforWifi=10  --simTime=6"
 
-./waf --run "scratch/prj_lw  --OutputFileName=output/prj_wf_150Mb_udp_1ue_m7_rtt30 --Scenario=1 --NumberUE=1 --Transport=2  --DataRateforUDP=150Mb/s  --wifiMcs=HtMcs7  --delayValueforRHtoR=5  --delayValueforWifi=10  --simTime=2"
+./waf --run "scratch/prj_lw  --OutputFileName=output/prj_wf_150Mb_udp_1ue_m7_rtt30 --Scenario=1 --NumberUE=1 --Transport=2  --DataRateforUDP=250Mb/s  --wifiMcs=HtMcs7  --delayValueforRHtoR=5  --delayValueforWifi=10  --simTime=10"
 
-./waf --run "scratch/prj_lw  --OutputFileName=output/prj_wf_50Mb_udp_1ue_m1_rtt200 --Scenario=1 --NumberUE=1 --Transport=2  --DataRateforUDP=50Mb/s  --wifiMcs=HtMcs1  --delayValueforRHtoR=10  --delayValueforWifi=90  --simTime=2"
+./waf --run "scratch/prj_lw  --OutputFileName=output/prj_wf_50Mb_udp_1ue_m1_rtt200 --Scenario=1 --NumberUE=1 --Transport=2  --DataRateforUDP=150Mb/s  --wifiMcs=HtMcs1  --delayValueforRHtoR=10  --delayValueforWifi=90  --simTime=10"
 
-./waf --run "scratch/prj_lw  --OutputFileName=output/prj_wf_150Mb_udp_1ue_m7_rtt200 --Scenario=1 --NumberUE=1 --Transport=2  --DataRateforUDP=150Mb/s  --wifiMcs=HtMcs7  --delayValueforRHtoR=10  --delayValueforWifi=90  --simTime=2"
+./waf --run "scratch/prj_lw  --OutputFileName=output/prj_wf_150Mb_udp_1ue_m7_rtt200 --Scenario=1 --NumberUE=1 --Transport=2  --DataRateforUDP=250Mb/s  --wifiMcs=HtMcs7  --delayValueforRHtoR=10  --delayValueforWifi=90  --simTime=10"
 
 
 ############

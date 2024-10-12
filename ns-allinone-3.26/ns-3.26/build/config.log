@@ -1,4 +1,4 @@
-# project ns (3.26) configured on Sat Oct 12 17:15:47 2024 by
+# project ns (3.26) configured on Sat Oct 12 21:01:05 2024 by
 # waf 1.8.19 (abi 98, python 2070cf0 on linux2)
 # using ./waf configure --enable-examples
 #
@@ -860,7 +860,7 @@ from /home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/src/core: Test does 
     raise Errors.BuildError(self.producer.error)
 BuildError: Build failed
  -> task in 'testprog' failed (exit status 1): 
-	{task 140737441205328: cxx test.cpp -> test.cpp.1.o}
+	{task 140737441192848: cxx test.cpp -> test.cpp.1.o}
 ['/usr/bin/g++', '-O0', '-ggdb', '-g3', '-Wall', '-Werror', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '../test.cpp', '-c', '-o', '/home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build/.conf_check_503c738d9c8c8cbb00216376d819067a/testbuild/test.cpp.1.o']
 
 not found
@@ -948,7 +948,7 @@ from /home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/src/core: Test does 
     raise Errors.BuildError(self.producer.error)
 BuildError: Build failed
  -> task in 'testprog' failed (exit status 1): 
-	{task 140737440286928: cxx test.cpp -> test.cpp.1.o}
+	{task 140737440299024: cxx test.cpp -> test.cpp.1.o}
 ['/usr/bin/g++', '-O0', '-ggdb', '-g3', '-Wall', '-Werror', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build/.conf_check_35ec8b4e49d8514b78b18d4d96887a77/testbuild/test.cpp.1.o']
 
 not found
@@ -1123,7 +1123,7 @@ from /home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/src/core: Test does 
     raise Errors.BuildError(self.producer.error)
 BuildError: Build failed
  -> task in 'testprog' failed (exit status 1): 
-	{task 140737440285200: cxx test.cpp -> test.cpp.1.o}
+	{task 140737440811216: cxx test.cpp -> test.cpp.1.o}
 ['/usr/bin/g++', '-O0', '-ggdb', '-g3', '-Wall', '-Werror', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build/.conf_check_35ec8b4e49d8514b78b18d4d96887a77/testbuild/test.cpp.1.o']
 
 not found
