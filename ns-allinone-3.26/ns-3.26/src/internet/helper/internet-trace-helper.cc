@@ -38,6 +38,13 @@ NS_LOG_COMPONENT_DEFINE ("InternetTraceHelper");
 void 
 PcapHelperForIpv4::EnablePcapIpv4 (std::string prefix, Ptr<Ipv4> ipv4, uint32_t interface, bool explicitFilename)
 {
+  // This function enables packet capture (pcap) for a specific IPv4 interface
+  // It calls the internal implementation EnablePcapIpv4Internal with the provided parameters
+  // Parameters:
+  //   prefix: Filename prefix for the pcap file
+  //   ipv4: Pointer to the Ipv4 object
+  //   interface: The interface number to capture
+  //   explicitFilename: Whether the prefix is an explicit filename
   EnablePcapIpv4Internal (prefix, ipv4, interface, explicitFilename);
 }
 

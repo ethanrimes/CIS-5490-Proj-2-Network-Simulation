@@ -92,6 +92,20 @@ void CalculateThroughput()
     Simulator::Schedule (MilliSeconds (THROUGHPUT_MEASUREMENT_INTERVAL_MS), &CalculateThroughput); // Measurement Interval THROUGHPUT_MEASUREMENT_INTERVAL_MS milliseconds
 }
 
+// Function to capture packets and store in pcap files
+void CapturePackets(NodeContainer& nodes, NetDeviceContainer& devices, std::string fileNamePrefix)
+{
+    for (uint32_t i = 0; i < nodes.GetN(); ++i) {
+        for (uint32_t j = 0; j < devices.GetN(); ++j) {
+            if (devices.Get(j)->GetNode() == nodes.Get(i)) {
+                std::ostringstream oss;
+                oss << fileNamePrefix << "_" << nodes.Get(i)->GetId() << "_" << j;
+                PcapHelper pcapHelper;
+                pcapHelper.EnablePcapIpv4(oss.str(), nodes.Get(i)->GetId(), j, true);
+            }
+        }
+    }
+}
 
 //==============================================================================//
 
@@ -191,6 +205,7 @@ int main(int argc, char *argv[]) {
         default:
             cout << "Error: chBwMhz option can take only 1.4, 5, 10, or 20)"<< endl;
             exit(1);
+            //break;  
     }
 
     Config::SetDefault("ns3::PointToPointEpcHelper::S1uLinkDelay", TimeValue (MilliSeconds (1.0)));  // delay between SGW and eNB
@@ -573,17 +588,7 @@ int main(int argc, char *argv[]) {
 
     // EDIT START ( about several lines of codes)
 
-
-    for (uint32_t i = 0; i < nodes.GetN(); ++i) {
-        for (uint32_t j = 0; j < devices.GetN(); ++j) {
-            if (devices.Get(j)->GetNode() == nodes.Get(i)) {
-                std::ostringstream oss;
-                oss << prefix_file_name << "_" << nodes.Get(i)->GetId() << "_" << j;
-                PcapHelper pcapHelper;
-                pcapHelper.EnablePcapIpv4(oss.str(), nodes.Get(i)->GetId(), j, true);
-            }
-        }
-    }
+    
 
 
 
@@ -1058,7 +1063,7 @@ int main(int argc, char *argv[]) {
 
     // EDIT START ( about several lines of codes)
 
-
+    
 
 
 
