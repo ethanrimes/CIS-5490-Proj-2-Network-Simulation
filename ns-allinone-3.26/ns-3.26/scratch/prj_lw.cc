@@ -574,7 +574,6 @@ int main(int argc, char *argv[]) {
     // The network node and interface index are provided in the assignment sheet
 
     // EDIT START ( about several lines of codes)
-
     uint32_t interfaceid = remoteHost->GetObject<Ipv4>()->GetInterfaceForDevice(remoteHost->GetDevice(0));
     std::ostringstream remoteHostFileName;
     remoteHostFileName << prefix_file_name << "remoteHost";
