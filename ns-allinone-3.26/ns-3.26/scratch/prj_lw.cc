@@ -574,21 +574,9 @@ int main(int argc, char *argv[]) {
     // The network node and interface index are provided in the assignment sheet
 
     // EDIT START ( about several lines of codes)
-    uint32_t interfaceid = remoteHost->GetObject<Ipv4>()->GetInterfaceForDevice(remoteHost->GetDevice(0));
-    std::ostringstream remoteHostFileName;
-    remoteHostFileName << prefix_file_name << "remoteHost";
-    internet.EnablePcapIpv4(remoteHostFileName.str(), remoteHost->GetId(), interfaceid, false);
-
-    interfaceid = router.Get(0)->GetObject<Ipv4>()->GetInterfaceForDevice(router.Get(0)->GetDevice(0));
-    std::ostringstream routerFileName;
-    routerFileName  << prefix_file_name  << "router";
-    internet.EnablePcapIpv4 (routerFileName.str(), router.Get(0)->GetId(), interfaceid, false);
-
-    interfaceid = apWiFiNode.Get(0)->GetObject<Ipv4>()->GetInterfaceForDevice(apWiFiNode.Get(0)->GetDevice(0));
-    std::ostringstream apWiFiFileName;
-    apWiFiFileName << prefix_file_name << "apWiFi";
-    internet.EnablePcapIpv4 (apWiFiFileName.str(), apWiFiNode.Get(0)->GetId(), interfaceid, false);
-
+    internet.EnablePcapIpv4(prefix_file_name+"remoteHost", 0,1, false); // server interface toward router
+    internet.EnablePcapIpv4 (prefix_file_name+"router ", 1, 1, false); // router interface toward server
+    internet.EnablePcapIpv4 (prefix_file_name+"router ", 1, 3, false); // router interface toward router
 
     // EDIT END
   
