@@ -576,7 +576,7 @@ int main(int argc, char *argv[]) {
     // EDIT START ( about several lines of codes)
     internet.EnablePcapIpv4(prefix_file_name+"remoteHost", 0,1, false); // server interface toward router
     internet.EnablePcapIpv4 (prefix_file_name+"router ", 1, 1, false); // router interface toward server
-    internet.EnablePcapIpv4 (prefix_file_name+"router ", 1, 3, false); // router interface toward router
+    internet.EnablePcapIpv4 (prefix_file_name+"router ", 1, 3, false); // router interface toward WiFi AP
 
     // EDIT END
   
