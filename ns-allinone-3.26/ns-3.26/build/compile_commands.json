@@ -1991,11 +1991,6 @@
   }, 
   {
     "directory": "/home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build", 
-    "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall -Werror -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -fPIC -pthread -Isrc/dsr -I../src/dsr -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/dsr/model/dsr-fs-header.cc -c -o /home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build/src/dsr/model/dsr-fs-header.cc.1.o", 
-    "file": "../src/dsr/model/dsr-fs-header.cc"
-  }, 
-  {
-    "directory": "/home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build", 
     "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall -Werror -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/internet/model/candidate-queue.cc -c -o /home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build/src/internet/model/candidate-queue.cc.1.o", 
     "file": "../src/internet/model/candidate-queue.cc"
   }, 
@@ -3086,6 +3081,11 @@
   }, 
   {
     "directory": "/home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build", 
+    "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall -Werror -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -fPIC -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/libpng12 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 -DHAVE_GTK2=1 -DHAVE_LIBXML2=1 ../src/flow-monitor/model/ipv4-flow-classifier.cc -c -o /home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build/src/flow-monitor/model/ipv4-flow-classifier.cc.1.o", 
+    "file": "../src/flow-monitor/model/ipv4-flow-classifier.cc"
+  }, 
+  {
+    "directory": "/home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build", 
     "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall -Werror -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/wimax/model/bs-scheduler.cc -c -o /home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build/src/wimax/model/bs-scheduler.cc.1.o", 
     "file": "../src/wimax/model/bs-scheduler.cc"
   }, 
@@ -3356,8 +3356,8 @@
   }, 
   {
     "directory": "/home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build", 
-    "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall -Werror -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -fPIC -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/libpng12 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 -DHAVE_GTK2=1 -DHAVE_LIBXML2=1 ../src/lte/model/lte-rlc-sdu-status-tag.cc -c -o /home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build/src/lte/model/lte-rlc-sdu-status-tag.cc.1.o", 
-    "file": "../src/lte/model/lte-rlc-sdu-status-tag.cc"
+    "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall -Werror -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -fPIC -pthread -Isrc/dsr -I../src/dsr -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/dsr/model/dsr-fs-header.cc -c -o /home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build/src/dsr/model/dsr-fs-header.cc.1.o", 
+    "file": "../src/dsr/model/dsr-fs-header.cc"
   }, 
   {
     "directory": "/home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build", 
@@ -4411,8 +4411,8 @@
   }, 
   {
     "directory": "/home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build", 
-    "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall -Werror -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -fPIC -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/libpng12 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 -DHAVE_GTK2=1 -DHAVE_LIBXML2=1 ../src/flow-monitor/model/ipv4-flow-classifier.cc -c -o /home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build/src/flow-monitor/model/ipv4-flow-classifier.cc.1.o", 
-    "file": "../src/flow-monitor/model/ipv4-flow-classifier.cc"
+    "command": "/usr/bin/g++ -O0 -ggdb -g3 -Wall -Werror -std=c++11 -Wno-error=deprecated-declarations -fstrict-aliasing -Wstrict-aliasing -fPIC -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/pixman-1 -I/usr/include/libpng12 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 -DHAVE_GTK2=1 -DHAVE_LIBXML2=1 ../src/lte/model/lte-rlc-sdu-status-tag.cc -c -o /home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build/src/lte/model/lte-rlc-sdu-status-tag.cc.1.o", 
+    "file": "../src/lte/model/lte-rlc-sdu-status-tag.cc"
   }, 
   {
     "directory": "/home/cis549/Project2-package/ns-allinone-3.26/ns-3.26/build", 

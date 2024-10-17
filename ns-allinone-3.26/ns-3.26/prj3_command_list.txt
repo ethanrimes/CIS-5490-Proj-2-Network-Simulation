@@ -1,0 +1,128 @@
+##########################
+# cis 549
+# Project #3 
+# problem #3  and Problem #4
+# Command List
+##########################
+
+##################################################
+# Command List for Problem #3: part 1/4
+##################################################
+# LTE path
+# channel bandwidth = 20MHz (100PRBs)
+# 1 UEs
+# tcpRcvBufBytes=64000 and tcpRcvBufBytes=1024000
+# TCP throughput
+# 30 ms RTT  and  200 ms RTT
+# Commands for the 4 scenarios
+##################################################
+
+# The echo line below simply print out the command line on the screen before running the simulation to let you know which scenario is currently running
+# If you run these command lines automatically, you cannot tell which command line is currently running without the echo line.
+# The actual command line is the one below without "echo" 
+# You can find that the echo line and the command line below are exactly same
+# I have added the echo line for the first two command lines only as an example. 
+# So you can add echo lines for the rest of the command. Simpy copy & paste the command line and type "echo " at the beginning of the line.
+
+echo ./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_1ue_rw1m_rtt30_bw20 --Scenario=2 --NumberUE=1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforLte=10 --chBwMHz=20 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_1ue_rw1m_rtt30_bw20 --Scenario=2 --NumberUE=1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforLte=10 --chBwMHz=20 --simTime=20"
+
+echo ./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_1ue_rw64k_rtt30_bw20 --Scenario=2 --NumberUE=1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=5  --delayValueforLte=10 --chBwMHz=20 --simTime=20"
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_1ue_rw64k_rtt30_bw20 --Scenario=2 --NumberUE=1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=5  --delayValueforLte=10 --chBwMHz=20 --simTime=20"
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_1ue_rw1m_rtt200_bw20 --Scenario=2 --NumberUE=1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=10 --delayValueforLte=90 --chBwMHz=20 --simTime=20"
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_1ue_rw64k_rtt200_bw20 --Scenario=2 --NumberUE=1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=10 --delayValueforLte=90 --chBwMHz=20 --simTime=60"
+
+
+##################################################
+# Command List for Problem #3: part 2/4
+##################################################
+# LTE path
+# channel bandwidth = 20MHz (100PRBs)
+# 3 UEs
+# tcpRcvBufBytes=64000 and tcpRcvBufBytes=1024000
+# TCP throughput
+# 30 ms RTT  and  200 ms RTT
+# Commands for the 4 scenarios
+##################################################
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_3ue_rw1m_rtt30_bw20 --Scenario=2 --NumberUE=3 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforLte=10 --chBwMHz=20 --simTime=20"
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_3ue_rw64k_rtt30_bw20 --Scenario=2 --NumberUE=3 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=5  --delayValueforLte=10 --chBwMHz=20 --simTime=20"
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_3ue_rw1m_rtt200_bw20 --Scenario=2 --NumberUE=3 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=10 --delayValueforLte=90 --chBwMHz=20 --simTime=20"
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_3ue_rw64k_rtt200_bw20 --Scenario=2 --NumberUE=3 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=10 --delayValueforLte=90 --chBwMHz=20 --simTime=60"
+
+
+##################################################
+# Command List for Problem #3: part 3/4
+##################################################
+# LTE path
+# channel bandwidth = 10MHz (50PRBs)
+# 1 UEs
+# tcpRcvBufBytes=64000 and tcpRcvBufBytes=1024000
+# TCP throughput
+# 30 ms RTT  and  200 ms RTT
+# Commands for the 4 scenarios
+##################################################
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_1ue_rw1m_rtt30_bw10 --Scenario=2 --NumberUE=1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforLte=10 --chBwMHz=10 --simTime=40"
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_1ue_rw64k_rtt30_bw10 --Scenario=2 --NumberUE=1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=5  --delayValueforLte=10 --chBwMHz=10 --simTime=40"
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_1ue_rw1m_rtt200_bw10 --Scenario=2 --NumberUE=1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=10 --delayValueforLte=90 --chBwMHz=10 --simTime=40"
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_1ue_rw64k_rtt200_bw10 --Scenario=2 --NumberUE=1 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=10 --delayValueforLte=90 --chBwMHz=10 --simTime=120"
+
+
+##################################################
+# Command List for Problem #3: part 4/4
+##################################################
+# LTE path
+# channel bandwidth = 10MHz (50PRBs)
+# 3 UEs
+# tcpRcvBufBytes=64000 and tcpRcvBufBytes=1024000
+# TCP throughput
+# 30 ms RTT  and  200 ms RTT
+# Commands for the 4 scenarios
+##################################################
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_3ue_rw1m_rtt30_bw10 --Scenario=2 --NumberUE=3 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=5  --delayValueforLte=10 --chBwMHz=10 --simTime=40"
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_3ue_rw64k_rtt30_bw10 --Scenario=2 --NumberUE=3 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=5  --delayValueforLte=10 --chBwMHz=10 --simTime=40"
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_3ue_rw1m_rtt200_bw10 --Scenario=2 --NumberUE=3 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=1024000 --delayValueforRHtoR=10 --delayValueforLte=90 --chBwMHz=10 --simTime=40"
+
+./waf --run "scratch/prj_lw --OutputFileName=output/prj_lt_10m_tcp_3ue_rw64k_rtt200_bw10 --Scenario=2 --NumberUE=3 --Transport=1 --DataSizeforTCP=10000000  --tcpRcvBufBytes=64000 --delayValueforRHtoR=10 --delayValueforLte=90 --chBwMHz=10 --simTime=120"
+
+
+
+##################################################
+# Command List for Problem #4
+##################################################
+# LTE path
+# channel bandwidth = 20MHz (100PRBs) and 10MHz (50PRBs)
+# 1 UEs
+# UDP throughput
+# 30 ms RTT  and  200 ms RTT
+# Commands for the 4 scenarios
+##################################################
+
+# channel bandwidth = 20 MHz
+./waf --run "scratch/prj_lw  --OutputFileName=output/prj_lt_50Mb_udp_1ue_rtt30_bw20 --Scenario=2 --NumberUE=1 --Transport=2  --DataRateforUDP=50Mb/s   --delayValueforRHtoR=5  --delayValueforLte=10  --chBwMHz=20 --simTime=2"
+
+./waf --run "scratch/prj_lw  --OutputFileName=output/prj_lt_50Mb_udp_1ue_rtt200_bw20 --Scenario=2 --NumberUE=1 --Transport=2  --DataRateforUDP=50Mb/s   --delayValueforRHtoR=10  --delayValueforLte=90   --chBwMHz=20 --simTime=2"
+
+# channel bandwidth = 10 MHz
+./waf --run "scratch/prj_lw  --OutputFileName=output/prj_lt_50Mb_udp_1ue_rtt30_bw10 --Scenario=2 --NumberUE=1 --Transport=2  --DataRateforUDP=50Mb/s   --delayValueforRHtoR=5  --delayValueforLte=10  --chBwMHz=10 --simTime=2"
+
+./waf --run "scratch/prj_lw  --OutputFileName=output/prj_lt_50Mb_udp_1ue_rtt200_bw10 --Scenario=2 --NumberUE=1 --Transport=2  --DataRateforUDP=50Mb/s   --delayValueforRHtoR=10  --delayValueforLte=90   --chBwMHz=10 --simTime=2"
+
+
+############
+# END
+############
+
+

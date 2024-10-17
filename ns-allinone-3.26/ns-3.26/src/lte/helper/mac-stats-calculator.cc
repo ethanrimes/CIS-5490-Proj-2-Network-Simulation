@@ -23,7 +23,12 @@
 #include <ns3/simulator.h>
 #include <ns3/log.h>
 
+// EDIT START
+#include "ns3/lte-amc.h"
+// EDIT END
+
 namespace ns3 {
+
 
 NS_LOG_COMPONENT_DEFINE ("MacStatsCalculator");
 
@@ -91,6 +96,8 @@ void
 MacStatsCalculator::DlScheduling (uint16_t cellId, uint64_t imsi, uint32_t frameNo, uint32_t subframeNo,
                                   uint16_t rnti, uint8_t mcsTb1, uint16_t sizeTb1, uint8_t mcsTb2, uint16_t sizeTb2)
 {
+ 
+  
   NS_LOG_FUNCTION (this << cellId << imsi << frameNo << subframeNo << rnti << (uint32_t) mcsTb1 << sizeTb1 << (uint32_t) mcsTb2 << sizeTb2);
   NS_LOG_INFO ("Write DL Mac Stats in " << GetDlOutputFilename ().c_str ());
 
@@ -104,7 +111,9 @@ MacStatsCalculator::DlScheduling (uint16_t cellId, uint64_t imsi, uint32_t frame
           return;
         }
       m_dlFirstWrite = false;
-      outFile << "% time\tcellId\tIMSI\tframe\tsframe\tRNTI\tmcsTb1\tsizeTb1\tmcsTb2\tsizeTb2";
+      
+      //include new column at end for number of PRB
+      outFile << "% time\tcellId\tIMSI\tframe\tsframe\tRNTI\tmcsTb1\tsizeTb1\tmcsTb2\tsizeTb2\tNprb";
       outFile << std::endl;
     }
   else
@@ -117,6 +126,27 @@ MacStatsCalculator::DlScheduling (uint16_t cellId, uint64_t imsi, uint32_t frame
         }
     }
 
+	// cis 549: Project-3 Problem 3 implementation 
+	// EDIT START (add about 6 lines)
+
+  // You may use following 3 lines if you want.
+  LteAmc obj;
+	uint32_t numPRB ;
+  int sizeTb1Temp = (uint32_t)sizeTb1*8;     // fine TB size in bits
+
+  // mcsTb1 is the MCS value
+  // check for transport block size in matrix with output to find numPRB
+  // Max nNBRP for 20MHz is 100
+
+       // you may add several lines here
+  for (int j = 0; j <= 100; j++) {
+    numPRB = j;
+    if (sizeTb1Temp <= obj.GetTbSizeFromMcs(mcsTb1, numPRB)) {
+      break;
+    }
+  }    
+  // EDIT END
+
   outFile << Simulator::Now ().GetNanoSeconds () / (double) 1e9 << "\t";
   outFile << (uint32_t) cellId << "\t";
   outFile << imsi << "\t";
@@ -126,8 +156,13 @@ MacStatsCalculator::DlScheduling (uint16_t cellId, uint64_t imsi, uint32_t frame
   outFile << (uint32_t) mcsTb1 << "\t";
   outFile << sizeTb1 << "\t";
   outFile << (uint32_t) mcsTb2 << "\t";
-  outFile << sizeTb2 << std::endl;
+  outFile << sizeTb2 << "\t";
+  //EDIT START  (add 1 line)
+  outFile << numPRB << "\n";
+          // the number of PRB count output column
+  // EDIT END
   outFile.close ();
+  
 }
 
 void
@@ -147,6 +182,7 @@ MacStatsCalculator::UlScheduling (uint16_t cellId, uint64_t imsi, uint32_t frame
           return;
         }
       m_ulFirstWrite = false;
+      //include new column at end for number of PRB
       outFile << "% time\tcellId\tIMSI\tframe\tsframe\tRNTI\tmcs\tsize";
       outFile << std::endl;
     }

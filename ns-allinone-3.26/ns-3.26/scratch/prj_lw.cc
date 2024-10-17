@@ -92,6 +92,7 @@ void CalculateThroughput()
     Simulator::Schedule (MilliSeconds (THROUGHPUT_MEASUREMENT_INTERVAL_MS), &CalculateThroughput); // Measurement Interval THROUGHPUT_MEASUREMENT_INTERVAL_MS milliseconds
 }
 
+
 //==============================================================================//
 
 int main(int argc, char *argv[]) {
@@ -144,7 +145,7 @@ int main(int argc, char *argv[]) {
     cmd.AddValue ("Scenario", "Differnet Simulation Scenario", Scenario);
     cmd.AddValue ("DataSizeforTCP", "Total Data Size for TCP (Default = 20000)", DataSizeforTCP);
     cmd.AddValue ("Transport", "Transport Layer Protocol (TCP = 1, UDP = 2) (Default: TCP)", Transport);
-    cmd.AddValue ("DataRateforUDP", "Data Rate for UDP (Default = 100Mb/s)", DataRateforUDP);
+    cmd.AddValue ("DataRateforUDP", "Data Rate for UDP (Defaule = 100Mb/s)", DataRateforUDP);
     cmd.AddValue ("OutputFileName", "The Prefix Output File Name (Default: CIS549)", prefix_file_name);
 
     // LTE channel Bandwidth options: 1.4 MHz, 5 MHz, 10 MHz, and 20 Mhz
@@ -155,22 +156,16 @@ int main(int argc, char *argv[]) {
     // Add options as specified in the assignment sheet
 
     // EDIT START : a several lines of code
-    cmd.AddValue("wifiMcs", "Wi-Fi MCS value", phyRate); 
-    cmd.AddValue("tcpRcvBufBytes", "TCP receive buffer size in bytes", tcpRcvBufBytes);
-    cmd.AddValue("delayValueforRHtoR", "Delay between Remote Host and Router", delayValueBtwnRemoteHostAndRouter);
-    cmd.AddValue("delayValueforWifi", "Delay between Router and Wi-Fi AP", delayValueforWifi);
-    
 
+    cmd.AddValue ("wifiMcs", "HtMcs1 or HtMcs7 (This is for the Wi-Fi configuration) (Default: HtMcs7)", phyRate);
+    cmd.AddValue ("tcpRcvBufBytes", "TCP receive buffer size in bytes (Default: 64000)", tcpRcvBufBytes);
+    cmd.AddValue ("delayValueforRHtoR", "one-way link delay in msec between the Remote Host(Server) and the Router (Default: 20)", delayValueBtwnRemoteHostAndRouter);
+    cmd.AddValue ("delayValueforWifi", "link delay in msec between the router and WiFi AP (Default: 20)", delayValueforWifi);
+    cmd.AddValue ("delayValueforLte", "link delay in msec between the router and PGW (Default: 20)", delayValueforLte);
 
     // EDIT END
 
     cmd.Parse (argc, argv);
-
-    // Check if numberUE is within valid range
-    if (numberUE < 1 || numberUE > 20) {
-        std::cout << "INPUT ERROR" << std::endl;
-        return EXIT_FAILURE;
-    }
 
     uint16_t numberEnb = 1;
     uint16_t numberRemote = 1;
@@ -287,29 +282,31 @@ int main(int argc, char *argv[]) {
     //
     //EDIT START
     double ueXmin = 1.0;
-    double ueXmax = 8.0;
+    double ueXmax = 8.0;     //EDIT: uncomment for the UE placement problem
     double ueYmin = 12;
-    double ueYmax = 30;
-    
-    // Generate a random number between ueXmin and ueXmax
-    Ptr<UniformRandomVariable> x = CreateObject<UniformRandomVariable> ();
-    x->SetAttribute ("Min", DoubleValue (ueXmin));
-    x->SetAttribute ("Max", DoubleValue (ueXmax));
-
-    Ptr<UniformRandomVariable> y = CreateObject<UniformRandomVariable> ();
-    y->SetAttribute ("Min", DoubleValue (ueYmin));
-    y->SetAttribute ("Max", DoubleValue (ueYmax));
+    double ueYmax = 30;      //EDIT: uncomment for the UE placement problem
 
     // Generate a random number for X and Y coordination for each of UEs
-    // using the above min and max boundary
+    // in here using the above min and max boundary
     // (x, y, z) coordination for UE location. z=0 means ground
     //////////////////////////////////////
 
+    
+    // double tmpX = ueXmin;
+    // double tmpY = ueYmin;
+
+    if (ueNodes.GetN() > 20) {
+        printf("INPUT ERROR\n");
+        exit(1);
+    }
+
     Ptr<ListPositionAllocator> positionAlloc1 = CreateObject<ListPositionAllocator> ();
-    for (uint32_t i = 0; i < ueNodes.GetN(); i++) {
-        double randomX = x->GetValue ();
-        double randomY = y->GetValue ();
-        positionAlloc1->Add (Vector(randomX, randomY, 0));
+    for (uint16_t i = 1; i <= ueNodes.GetN(); i++) {
+        double tmpX = ueXmin + ((double) rand() / RAND_MAX) * (ueXmax - ueXmin);
+        double tmpY = ueYmin + ((double) rand() / RAND_MAX) * (ueYmax - ueYmin);
+        // tmpX += 2;
+        // tmpY += 2;
+        positionAlloc1->Add (Vector(tmpX, tmpY, 0));    // x, and y should be randomly generated
     }
     
     //EDIT END
@@ -378,6 +375,8 @@ int main(int argc, char *argv[]) {
     // The propagation loss model is Friis                                      //
     YansWifiChannelHelper wifiChannel ;
     wifiChannel.SetPropagationDelay ("ns3::ConstantSpeedPropagationDelayModel");
+   // wifiChannel.SetPropagationDelay("Delay", TimeValue (MicroSeconds(50)));
+    //p2ph.SetChannelAttribute ("Delay", TimeValue (MilliSeconds (delayValueBtwnRemoteHostAndRouter)));
     wifiChannel.AddPropagationLoss ("ns3::FriisPropagationLossModel", "Frequency", DoubleValue (5e9));
 
     // Setup the physical layer of WiFi                                         //
@@ -574,9 +573,11 @@ int main(int argc, char *argv[]) {
     // The network node and interface index are provided in the assignment sheet
 
     // EDIT START ( about several lines of codes)
-    internet.EnablePcapIpv4(prefix_file_name+"remoteHost", 0,1, false); // server interface toward router
-    internet.EnablePcapIpv4 (prefix_file_name+"router ", 1, 1, false); // router interface toward server
-    internet.EnablePcapIpv4 (prefix_file_name+"router ", 1, 3, false); // router interface toward WiFi AP
+
+    internet.EnablePcapIpv4(prefix_file_name + "server-router", 0, 1, false);
+    internet.EnablePcapIpv4(prefix_file_name + "router-wifi-ap", 1, 3, false);
+    internet.EnablePcapIpv4(prefix_file_name + "server-interface", 1, 1, false);
+    internet.EnablePcapIpv4(prefix_file_name + "router-pgw", 1, 2, false);
 
     // EDIT END
   
